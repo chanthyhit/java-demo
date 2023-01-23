@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+        <!-- bean definitions here -->
+    <bean id="employee" class="com.example.demo.pojo.Employee">
+        <constructor-arg index="0" ref="company"/>
+        <constructor-arg name="name" value="Chanthy Hit"/>
+        <constructor-arg name="age" value="30"/>
+    </bean>
+
+    <bean id="company" class="com.example.demo.pojo.Company">
+        <property name="name" value="Apple"/>
+        <property name="zip" value="28210"/>
+    </bean>
+</beans>
