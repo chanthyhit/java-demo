@@ -12,7 +12,6 @@ import java.util.Collections;
 import java.util.List;
 
 @Controller
-@RequestMapping("/share")
 public class ShareController {
 
     private final DepartmentService service;
@@ -21,13 +20,48 @@ public class ShareController {
         this.service = service;
     }
 
-    @GetMapping("/deps")
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
+
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
+
+    @GetMapping("/admin/list")
+    @ResponseBody
+    public String adminAPIs(){
+        return "register, modify user";
+    }
+
+    @GetMapping("/user/list")
+    @ResponseBody
+    public String userAPIs(){
+        return "check, print user";
+    }
+
+    @GetMapping("/public/list")
+    @ResponseBody
+    public String publicAPIs(){
+        return "public apis";
+    }
+
+
+    @GetMapping("/public/deps")
     @ResponseBody
     public List<Department> getDeps(){
         return service.getDeps();
     }
 
-    @PostMapping("/post")
+    @PostMapping("/public/post")
     @ResponseBody
     public Department save(){
         Department dep = new Department(6,"MAT","ACL03","DL","3");
