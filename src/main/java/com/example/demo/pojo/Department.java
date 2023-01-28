@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Department {
@@ -16,7 +17,8 @@ public class Department {
     private String labor;
     private String shift;
 
-    public Department() {}
+    public Department() {
+    }
 
     public Department(int id, String department, String line, String labor, String shift) {
         this.id = id;
@@ -75,5 +77,18 @@ public class Department {
                 ", labor='" + labor + '\'' +
                 ", shift='" + shift + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return id == that.id && Objects.equals(department, that.department) && Objects.equals(line, that.line) && Objects.equals(labor, that.labor) && Objects.equals(shift, that.shift);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, department, line, labor, shift);
     }
 }

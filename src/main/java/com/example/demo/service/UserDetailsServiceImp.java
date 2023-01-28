@@ -1,23 +1,20 @@
 package com.example.demo.service;
 
 import com.example.demo.pojo.User;
+import com.example.demo.pojo.UserRole;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-@Service
+@Service("userDetailsService")
 public class UserDetailsServiceImp implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
@@ -29,8 +26,7 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findOneByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
@@ -39,12 +35,10 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
     private Set<SimpleGrantedAuthority> getAuthority(User user) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        /*user.getRoles().forEach(role -> {
-            // You can also add different roles with prefix ROLE_
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
-        });*/
-        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        Set<UserRole> roles = roleRepository.findRoleByUsername(user.getUsername());
+        roles.forEach(i->{
+            authorities.add(new SimpleGrantedAuthority(i.getRole()));
+        });
         return authorities;
     }
 }

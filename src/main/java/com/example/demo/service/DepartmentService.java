@@ -22,6 +22,10 @@ public class DepartmentService {
     public List<Department> getDeps(){
         return repository.findAll();
     }
+
+    public Department findOneById(int id){
+        return repository.findOneById(id);
+    }
     public Department save(Department dep){
         return repository.save(dep);
     }
