@@ -1,9 +1,16 @@
 package com.example.demo.pojo;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_role")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class UserRole {
 
     @Id
@@ -11,28 +18,4 @@ public class UserRole {
     private String id;
     private String username;
     private String role;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

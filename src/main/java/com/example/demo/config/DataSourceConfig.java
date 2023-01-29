@@ -13,19 +13,19 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 @Configuration
-@Profile({"apple"})
+@Profile({"test"})
 public class DataSourceConfig {
 
-    /*@Bean
+    @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/daikin_db");
         dataSource.setUsername("root");
         dataSource.setPassword("318D@ikin");
         return dataSource;
-    }*/
-
+    }
+/*
     //@Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -36,13 +36,13 @@ public class DataSourceConfig {
         return dataSource;
     }
 
-    @PostConstruct
+
     private void initialize() {
         ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
         populator.addScript(new ClassPathResource("schema.sql"));
         populator.addScript(new ClassPathResource("data.sql"));
         DatabasePopulatorUtils.execute(populator, dataSource());
-    }
+    }*/
 
 }
 
