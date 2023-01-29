@@ -16,12 +16,10 @@ import static org.mockito.Mockito.when;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 public class DepartmentServiceTest {
-
     @Autowired
     DepartmentService service;
     @Mock
     DepartmentRepository repository;
-
     @Test
     public void findOneByIdTest(){
         int id = 1;
