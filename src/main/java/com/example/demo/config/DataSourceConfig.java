@@ -103,25 +103,5 @@ public class DataSourceConfig {
             return properties;
         }
     }
-
-/*
-    //@Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:mem:testdb");
-        dataSource.setUsername("sa");
-        dataSource.setPassword("password");
-        return dataSource;
-    }
-
-
-    private void initialize() {
-        ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-        populator.addScript(new ClassPathResource("schema.sql"));
-        populator.addScript(new ClassPathResource("data.sql"));
-        DatabasePopulatorUtils.execute(populator, dataSource());
-    }*/
-
 }
 

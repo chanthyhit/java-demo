@@ -23,7 +23,7 @@ public class DepartmentServiceTest {
     @Test
     public void findOneByIdTest(){
         int id = 1;
-        Department expected = new Department(1,"401A","AAC01","DL","1");
+        Department expected = new Department(1,"401E","AAC01","DL","1");
         when(repository.findOneById(id)).thenReturn(expected);
         Department actual = service.findOneById(id);
         assertEquals(expected, actual);
