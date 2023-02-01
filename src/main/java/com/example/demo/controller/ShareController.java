@@ -62,7 +62,7 @@ public class ShareController {
     @GetMapping("/public/list")
     @ResponseBody
     public String publicAPIs(){
-        return "public apis. Testing CICD in AWS";
+        return "public apis. I'm testing CICD in AWS";
     }
 
 
