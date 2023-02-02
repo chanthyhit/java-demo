@@ -3,7 +3,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '<credentials_id>', url: '<repo_url>']]])
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [
+                        [
+                            url: 'https://github.com/chanthyhit/java-demo.git',
+                            credentialsId: 'github-private-key'
+                        ]
+                    ]
+                ])
             }
         }
         stage('Build') {
