@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './mvnw clean package'
+                sh 'sudo ./mvnw clean package'
             }
         }
         stage('Test') {
             steps {
-                sh './mvnw test'
+                sh 'sudo ./mvnw test'
             }
         }
         stage('Deploy') {
