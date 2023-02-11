@@ -59,7 +59,7 @@ public class DataSourceConfig {
         }
     }
 
-    @Profile("dev")
+    @Profile({"test","dev"})
     @PropertySource("classpath:application-dev.properties")
     class Dev {
         @Value("${spring.jpa.database-platform}")
