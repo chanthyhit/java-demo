@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './mvnw clean install'
+                sh './mvnw clean install -Dspring.profiles.active=dev'
             }
         }
         stage('Test') {
