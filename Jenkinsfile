@@ -20,17 +20,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './mvnw clean install -Dspring.profiles.active=dev'
+                sh './mvnw clean package -Dspring.profiles.active=dev'
             }
         }
         stage('Test') {
             steps {
                 sh './mvnw test -Dspring.profiles.active=dev'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
             }
         }
         stage('Deploy') {
