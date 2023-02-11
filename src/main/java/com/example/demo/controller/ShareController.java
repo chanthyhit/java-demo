@@ -50,7 +50,7 @@ public class ShareController {
     @GetMapping("/admin/list")
     @ResponseBody
     public String adminAPIs(){
-        return "register, modify user";
+        return "register, modify users";
     }
 
     @GetMapping("/user/list")
