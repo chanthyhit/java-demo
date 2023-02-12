@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.pojo.Department;
 import com.example.demo.repository.DepartmentRepository;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class DepartmentServiceTests {
     public void findOneByIdTest(){
         System.out.println("================================");
         int id = 1;
-        Department expected = new Department(1,"401E1","AAC01","DL","1");
+        Department expected = new Department(1,"401E","AAC01","DL","1");
         when(repository.findOneById(id)).thenReturn(expected);
         Department actual = service.findOneById(id);
         assertEquals(expected, actual);
