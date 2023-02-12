@@ -18,7 +18,7 @@ class DemoApplicationTests {
 	@Test
 	void contextLoads() {
 		String[] beans = context.getBeanDefinitionNames();
-		Arrays.stream(beans).forEach(i->System.out.println("===== "+ i));
+		//Arrays.stream(beans).forEach(i->System.out.println("===== "+ i));
 	}
 
 }

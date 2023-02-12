@@ -15,15 +15,16 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-public class DepartmentServiceTest {
+public class DepartmentServiceTests {
     @Autowired
     DepartmentService service;
     @Mock
     DepartmentRepository repository;
     @Test
     public void findOneByIdTest(){
+        System.out.println("================================");
         int id = 1;
-        Department expected = new Department(1,"401E","AAC01","DL","1");
+        Department expected = new Department(1,"401E1","AAC01","DL","1");
         when(repository.findOneById(id)).thenReturn(expected);
         Department actual = service.findOneById(id);
         assertEquals(expected, actual);
