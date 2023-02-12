@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'sudo ./mvnw clean package'
+                sh 'whoami'
             }
         }
         stage('Test') {
