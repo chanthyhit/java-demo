@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'whoami'
+                sh './mvnw clean package'
             }
         }
         stage('Test') {
             steps {
-                sh './mvnw test'
+                sh 'whoami'
             }
         }
         stage('Deploy') {
