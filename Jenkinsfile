@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './mvnw clean install -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.FORCE_BINARY_WRAPPER=true'
+                sh './mvnw clean install'
             }
         }
         stage('Test') {
