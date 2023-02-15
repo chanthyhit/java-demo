@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-<!--    <property name="LOG_FILE" value="/Users/chanthyhit/Dev/Spring/java-demo/src/main/resources/app.log"/>-->
-    <property name="LOG_FILE" value="/var/lib/jenkins/workspace/demo-pipe_master/src/main/resources/app.log"/>
+    <property name="LOG_FILE" value="logs/app.log"/>
 
     <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FILE}</file>
