@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <property name="LOG_FILE" value="logs/app.log"/>
+    <property name="LOG_FILE" value="/Users/chanthyhit/Dev/Spring/java-demo/src/main/resources/app.log"/>
 
     <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FILE}</file>
@@ -30,7 +30,7 @@
         </layout>
     </appender>
 
-    <logger name="com.dailycodebuffer" level="trace" additivity="false">
+    <logger name="com.example.demo" level="trace" additivity="false">
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
 
@@ -38,7 +38,7 @@
         <appender-ref ref="FILE-ROLLING"/>
     </root>
 
-    <logger name="com.dailycodebuffer" level="debug" additivity="false">
+    <logger name="com.example.demo" level="debug" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
     <root level="error">
