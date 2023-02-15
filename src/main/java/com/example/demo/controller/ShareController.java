@@ -2,6 +2,9 @@ package com.example.demo.controller;
 
 import com.example.demo.pojo.Department;
 import com.example.demo.service.DepartmentService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,6 +22,7 @@ import java.util.List;
 
 @Controller
 public class ShareController {
+    Logger logger = LoggerFactory.getLogger(ShareController.class);
     private final DepartmentService service;
 
     public ShareController(DepartmentService service){
@@ -69,6 +73,7 @@ public class ShareController {
     @GetMapping("/public/deps")
     @ResponseBody
     public List<Department> getDeps(){
+        logger.info("pulling data from database.");
         return service.getDeps();
     }
 
