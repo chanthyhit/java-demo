@@ -3,16 +3,12 @@ package com.example.demo.pojo;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "department")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

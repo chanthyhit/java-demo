@@ -9,12 +9,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "user_detail")
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

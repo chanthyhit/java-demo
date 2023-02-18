@@ -6,12 +6,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user_role")
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 public class UserRole {
 
     @Id
