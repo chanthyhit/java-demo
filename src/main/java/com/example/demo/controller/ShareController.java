@@ -3,10 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.pojo.Department;
 import com.example.demo.service.DepartmentService;
 
-import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,17 +12,13 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
-@Log
+//@Log
 public class ShareController {
-    //Logger logger = LoggerFactory.getLogger(ShareController.class);
     private final DepartmentService service;
 
     public ShareController(DepartmentService service){
@@ -75,7 +69,6 @@ public class ShareController {
     @GetMapping("/public/deps")
     @ResponseBody
     public List<Department> getDeps(){
-        log.info("pulling data from database.");
         return service.getDeps();
     }
 
